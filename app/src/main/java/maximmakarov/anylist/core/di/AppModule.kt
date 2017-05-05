@@ -4,6 +4,7 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import maximmakarov.anylist.storage.DataProvider
+import maximmakarov.anylist.storage.SharedPrefsProvider
 import javax.inject.Singleton
 
 /**
@@ -22,4 +23,8 @@ class AppModule(mContext: Context) {
     @Singleton
     @Provides
     fun getDataProvider() = DataProvider(context)
+
+    @Singleton
+    @Provides
+    fun getSharedPrefs() = SharedPrefsProvider(context)
 }
