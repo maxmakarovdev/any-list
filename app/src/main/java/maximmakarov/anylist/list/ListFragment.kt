@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import maximmakarov.anylist.R
+import kotlinx.android.synthetic.main.list_fragment.*
 
 class ListFragment : Fragment() {
 
