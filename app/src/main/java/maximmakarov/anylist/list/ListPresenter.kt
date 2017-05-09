@@ -11,7 +11,7 @@ import javax.inject.Inject
  * @since 05.05.2017
  */
 @InjectViewState
-class ListPresenter: MvpPresenter<ListView>() {
+class ListPresenter: MvpPresenter<IListView>() {
     @Inject
     lateinit var dataProvider: DataProvider
 

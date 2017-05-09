@@ -1,3 +1,36 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Text -->
+    <dimen name="text_10">10sp</dimen>
+    <dimen name="text_12">12sp</dimen>
+    <dimen name="text_14">14sp</dimen>
+    <dimen name="text_16">16sp</dimen>
+    <dimen name="text_18">18sp</dimen>
+    <dimen name="text_20">20sp</dimen>
+    <dimen name="text_22">22sp</dimen>
+    <dimen name="text_24">25sp</dimen>
+    <dimen name="text_26">26sp</dimen>
+    <dimen name="text_30">30sp</dimen>
+
+    <!-- Spacings, per the Android Design guidelines.-->
+    <dimen name="spacing_void">0dp</dimen>
+    <dimen name="spacing_tiny">2dp</dimen>
+    <dimen name="spacing_smallest">4dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medial">12dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_medieval">18dp</dimen>
+    <dimen name="spacing_median">20dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+    <dimen name="spacing_larger">28dp</dimen>
+    <dimen name="spacing_huge">32dp</dimen>
+    <dimen name="spacing_xhuge">36dp</dimen>
+    <dimen name="spacing_big">48dp</dimen>
+    <dimen name="spacing_bigger">56dp</dimen>
+    <dimen name="spacing_biggest">84dp</dimen>
+
+    <!-- item -->
+    <dimen name="color_tag_width">6dp</dimen>
+    <dimen name="item_right_width">100dp</dimen>
+
 </resources>

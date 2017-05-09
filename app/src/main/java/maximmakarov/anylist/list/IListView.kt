@@ -10,6 +10,6 @@ import maximmakarov.anylist.item.Item
  * @since 05.05.2017
  */
 @StateStrategyType(value = AddToEndSingleStrategy::class)
-interface ListView : MvpView {
+interface IListView : MvpView {
     fun onItemsLoaded(items: List<Item>)
 }
