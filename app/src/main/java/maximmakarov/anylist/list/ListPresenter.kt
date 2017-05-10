@@ -3,6 +3,7 @@ package maximmakarov.anylist.list
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import maximmakarov.anylist.core.di.Injector
+import maximmakarov.anylist.item.Item
 import maximmakarov.anylist.storage.DataProvider
 import javax.inject.Inject
 
@@ -17,5 +18,9 @@ class ListPresenter: MvpPresenter<IListView>() {
 
     init {
         Injector.appComponent.inject(this)
+    }
+
+    fun loadData(item: Item?){
+        viewState.onItemsLoaded(dataProvider.loadChilds(item).toMutableList())
     }
 }

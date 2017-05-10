@@ -32,8 +32,8 @@ class DataProvider {
         return (data select (Item::class)).get()
     }
 
-    fun loadChilds(item: Item): Result<Item> {
-        return (data select (Item::class) where (Item::parentId eq item.id)).get()
+    fun loadChilds(item: Item?): Result<Item> {
+        return (data select (Item::class) where (Item::parentId eq (item?.id ?: 0))).get()
     }
 
     fun getPathToItem(i: Item) {

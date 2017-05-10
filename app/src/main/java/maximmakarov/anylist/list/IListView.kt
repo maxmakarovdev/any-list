@@ -11,5 +11,5 @@ import maximmakarov.anylist.item.Item
  */
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface IListView : MvpView {
-    fun onItemsLoaded(items: List<Item>)
+    fun onItemsLoaded(items: MutableList<Item>)
 }
