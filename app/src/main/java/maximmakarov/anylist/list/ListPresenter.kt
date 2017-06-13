@@ -33,7 +33,7 @@ class ListPresenter(val parentItem: Item) : MvpPresenter<IListView>() {
         dataProvider.saveItem(item)
     }
 
-    fun updateItem(item: Item){
+    fun updateItem(item: Item) {
         dataProvider.updateItem(item)
     }
 }

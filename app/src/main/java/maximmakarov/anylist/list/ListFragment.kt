@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import com.arellomobile.mvp.MvpFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.arellomobile.mvp.presenter.ProvidePresenterTag
 import kotlinx.android.synthetic.main.list_fragment.*
 import maximmakarov.anylist.R
 import maximmakarov.anylist.core.utils.FragmentUtils
@@ -26,8 +27,12 @@ class ListFragment : MvpFragment(), IListView, IListAdapterCallback {
     lateinit var presenter: ListPresenter
 
     @ProvidePresenter
-    fun providePresenter(): ListPresenter {
-        return ListPresenter(arguments.getParcelable(BUNDLE_PARENT_ITEM))
+    fun providePresenter(): ListPresenter = ListPresenter(arguments.getParcelable(BUNDLE_PARENT_ITEM))
+
+    @ProvidePresenterTag(presenterClass = ListPresenter::class)
+    fun providePresenterTag(): String {
+        val item: Item = arguments.getParcelable(BUNDLE_PARENT_ITEM)
+        return item.id.toString()
     }
 
     val adapter: ListAdapter = ListAdapter(this)
@@ -79,7 +84,6 @@ class ListFragment : MvpFragment(), IListView, IListAdapterCallback {
             }
         }
     }
-
 
     override fun updateItem(item: Item) {
         presenter.updateItem(item)
