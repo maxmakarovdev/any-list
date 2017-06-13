@@ -4,6 +4,9 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.speech.RecognizerIntent
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,7 +38,7 @@ class ListFragment : MvpFragment(), IListView, IListAdapterCallback {
         return item.id.toString()
     }
 
-    val adapter: ListAdapter = ListAdapter(this)
+    var adapter: ListAdapter = ListAdapter(this)
 
     companion object {
         val BUNDLE_PARENT_ITEM = "BUNDLE_PARENT_ITEM"
@@ -58,6 +61,8 @@ class ListFragment : MvpFragment(), IListView, IListAdapterCallback {
 
         presenter.loadData()
 
+        initRecyclerView()
+
         btn_voice_input.setOnClickListener {
             SpeechUtils.startSpeechActivity(this, CODE_SPEECH)
         }
@@ -71,6 +76,32 @@ class ListFragment : MvpFragment(), IListView, IListAdapterCallback {
             }
         }
     }
+
+    private fun initRecyclerView() {
+        list_items.layoutManager = LinearLayoutManager(activity)
+        list_items.adapter = adapter
+
+        val simpleItemTouchCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+
+            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+                return false //todo
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, swipeDir: Int) {
+                when (swipeDir) { //todo
+                    ItemTouchHelper.LEFT -> {
+
+                    }
+                    ItemTouchHelper.RIGHT -> {
+
+                    }
+                }
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(simpleItemTouchCallback)
+        itemTouchHelper.attachToRecyclerView(list_items)
+    }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
