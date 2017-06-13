@@ -18,7 +18,11 @@ import java.util.*
  */
 class DataProvider {
     val DB_VERSION: Int = 1
-    val ABSENT_PARENT_ID = 0
+
+    companion object{
+        val ABSENT_PARENT_ID = -1
+        val ROOT_PARENT_ID = 0
+    }
 
     val data: KotlinReactiveEntityStore<Persistable>
 
@@ -34,6 +38,15 @@ class DataProvider {
 
     fun loadChilds(item: Item?): Result<Item> {
         return (data select (Item::class) where (Item::parentId eq (item?.id ?: 0))).get()
+
+        /*dataStore.select(UserEntity::class.java)
+ .get()
+ .toObservable()
+ .subscribeOn(Schedulers.io())
+ .observeOn(AndroidSchedulers.mainThread())
+ .subscribe{ user ->
+    Timber.d(“User from DB: “+user.getId()+” “+user .getName())
+}*/
     }
 
     fun getPathToItem(i: Item) {
@@ -52,6 +65,14 @@ class DataProvider {
 
     fun saveItem(item: Item) {
         data insert item
+
+        /*dataStore.insert(user)
+ .toObservable()
+ .subscribeOn(Schedulers.io())
+ .observeOn(AndroidSchedulers.mainThread())
+ .subscribe{ user ->
+    Timber.d(“User inserted: “+user.getId()+” “+user .getName())
+}*/
     }
 
     fun updateItem(item: Item) {

@@ -11,7 +11,7 @@ import io.requery.*
 interface Item : Parcelable, Persistable {
     @get:Key
     @get:Generated
-    val id: Int
+    var id: Int
 
     var parentId: Int
     var name: String

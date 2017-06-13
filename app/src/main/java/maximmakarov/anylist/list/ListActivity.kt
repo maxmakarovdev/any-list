@@ -4,6 +4,8 @@ import android.os.Bundle
 import com.arellomobile.mvp.MvpAppCompatActivity
 import maximmakarov.anylist.R
 import maximmakarov.anylist.core.utils.FragmentUtils
+import maximmakarov.anylist.item.ItemEntity
+import maximmakarov.anylist.storage.DataProvider
 
 /**
  * @author Maxim Makarov
@@ -14,6 +16,11 @@ class ListActivity : MvpAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.list_activity)
-        FragmentUtils.replace(fragmentManager, ListFragment.newInstance())
+
+        val rootItem = ItemEntity()
+        rootItem.id = DataProvider.ROOT_PARENT_ID
+        rootItem.parentId = DataProvider.ABSENT_PARENT_ID
+
+        FragmentUtils.replace(fragmentManager, ListFragment.newInstance(rootItem))
     }
 }

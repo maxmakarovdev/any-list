@@ -5,7 +5,11 @@
 
     <string name="list_no_items">Этот список пуст</string>
 
+    <string name="speech_say">Говорите&#8230;</string>
+    <string name="speech_not_supported">Ваше устройство не поддерживает голосовой ввод</string>
+    <string name="new_item">Новая запись</string>
 
+    <string name="error_enter_name">Введите название записи</string>
 
     <!-- Strings related to Settings -->
 
